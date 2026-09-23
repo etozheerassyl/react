@@ -337,6 +337,14 @@ main {
 }
 
 /* Avatar Frame & Glow */
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.15fr 1.05fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* Avatar Frame & Glow */
 .hero-visual {
   display: flex;
   justify-content: center;
@@ -345,7 +353,7 @@ main {
 .avatar-frame-wrapper {
   position: relative;
   width: 100%;
-  max-width: 380px;
+  max-width: 480px;
 }
 
 .ambient-glow-circle {
@@ -357,16 +365,16 @@ main {
 }
 
 .glow-1 {
-  width: 260px;
-  height: 260px;
+  width: 320px;
+  height: 280px;
   top: -20px;
   right: -20px;
   background: rgba(78, 212, 210, 0.28);
 }
 
 .glow-2 {
-  width: 220px;
-  height: 220px;
+  width: 280px;
+  height: 240px;
   bottom: -20px;
   left: -20px;
   background: rgba(255, 97, 80, 0.25);
@@ -383,7 +391,7 @@ main {
 .avatar-image-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1537 / 1023;
   border-radius: calc(var(--radius-lg) - 4px);
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
@@ -489,7 +497,7 @@ main {
   }
 
   .avatar-frame-wrapper {
-    max-width: 300px;
+    max-width: 440px;
   }
 }
 
