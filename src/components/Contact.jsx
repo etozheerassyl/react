@@ -35,7 +35,7 @@ export default function Contact() {
             Get in <span className="gradient-text">Touch</span>
           </h2>
           <p className="section-desc">
-            Have an interesting project, question, or just want to say hi? Feel free to reach out!
+            Have an interesting project, question, or just want to say hi? Feel free to reach out through any channel!
           </p>
         </div>
 
@@ -58,20 +58,76 @@ export default function Contact() {
                   </div>
                 </div>
 
+                {/* Instagram */}
+                <div className="contact-item">
+                  <div className="contact-item-icon">📸</div>
+                  <div className="contact-item-content">
+                    <span className="contact-item-label">Instagram</span>
+                    <a
+                      href="https://www.instagram.com/etozheerasyl/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-item-link"
+                    >
+                      @etozheerasyl
+                    </a>
+                  </div>
+                  <a
+                    href="https://www.instagram.com/etozheerasyl/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="copy-btn"
+                  >
+                    Visit ↗
+                  </a>
+                </div>
+
+                {/* Telegram */}
+                <div className="contact-item">
+                  <div className="contact-item-icon">✈️</div>
+                  <div className="contact-item-content">
+                    <span className="contact-item-label">Telegram</span>
+                    <a
+                      href="https://t.me/etozheerasyl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-item-link"
+                    >
+                      @etozheerasyl
+                    </a>
+                  </div>
+                  <a
+                    href="https://t.me/etozheerasyl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="copy-btn"
+                  >
+                    Open ↗
+                  </a>
+                </div>
+
                 {/* GitHub */}
                 <div className="contact-item">
                   <div className="contact-item-icon">🐙</div>
                   <div className="contact-item-content">
                     <span className="contact-item-label">GitHub</span>
                     <a
-                      href="https://github.com"
+                      href="https://github.com/etozheerassyl"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="contact-item-link"
                     >
-                      github.com/yerassyl
+                      github.com/etozheerassyl
                     </a>
                   </div>
+                  <a
+                    href="https://github.com/etozheerassyl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="copy-btn"
+                  >
+                    View ↗
+                  </a>
                 </div>
 
                 {/* Safe Email */}
@@ -90,21 +146,12 @@ export default function Contact() {
                     {copied ? '✓ Copied' : 'Copy'}
                   </button>
                 </div>
-
-                {/* Social Handle */}
-                <div className="contact-item">
-                  <div className="contact-item-icon">💬</div>
-                  <div className="contact-item-content">
-                    <span className="contact-item-label">Social / Community</span>
-                    <span className="contact-item-value">@yerassyl_dev</span>
-                  </div>
-                </div>
               </div>
 
               {/* Status Note */}
               <div className="privacy-badge">
                 <span className="privacy-badge-icon">🔒</span>
-                <span>Privacy Protected: No sensitive personal numbers or private addresses listed.</span>
+                <span>Privacy Protected: No sensitive personal numbers or private home addresses listed.</span>
               </div>
             </div>
           </div>
@@ -142,13 +189,13 @@ export default function Contact() {
 
                   <div className="form-group">
                     <label htmlFor="email" className="form-label">
-                      Your Email (or Handle)
+                      Your Email (or Telegram / Instagram)
                     </label>
                     <input
                       id="email"
-                      type="email"
+                      type="text"
                       required
-                      placeholder="e.g. alex@example.com"
+                      placeholder="e.g. alex@example.com or @handle"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="form-input"
@@ -163,7 +210,7 @@ export default function Contact() {
                       id="message"
                       rows="4"
                       required
-                      placeholder="Hello Yerassyl, I really like your React portfolio..."
+                      placeholder="Hello Yerassyl, I found your React portfolio and wanted to connect..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="form-input form-textarea"

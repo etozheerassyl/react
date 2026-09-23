@@ -9,8 +9,8 @@ export default function Projects() {
       description:
         'A sleek, responsive Single Page Application built with React 19 and Vite. Features modular architecture, custom vanilla CSS design system, and configured for seamless GitHub Pages deployment.',
       tags: ['React 19', 'Vite', 'Vanilla CSS', 'GitHub Pages', 'SPA'],
-      github: 'https://github.com',
-      demo: '#',
+      github: 'https://github.com/etozheerassyl/react',
+      demo: 'https://etozheerassyl.github.io/react/',
       featured: true,
       stats: 'Modular • Fast • Responsive',
     },

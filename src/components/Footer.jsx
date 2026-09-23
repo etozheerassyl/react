@@ -21,6 +21,9 @@ export default function Footer() {
             <a href="#skills" className="footer-link">Skills</a>
             <a href="#projects" className="footer-link">Projects</a>
             <a href="#contact" className="footer-link">Contact</a>
+            <a href="https://t.me/etozheerasyl" target="_blank" rel="noopener noreferrer" className="footer-link">Telegram</a>
+            <a href="https://www.instagram.com/etozheerasyl/" target="_blank" rel="noopener noreferrer" className="footer-link">Instagram</a>
+            <a href="https://github.com/etozheerassyl" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
           </div>
 
           <button onClick={scrollToTop} className="back-to-top-btn" title="Back to Top">
