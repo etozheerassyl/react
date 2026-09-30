@@ -36,6 +36,15 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Build task-3
+        run: |
+          cd task-3
+          npm ci
+          npm run build
+          cd ..
+          mkdir -p ./dist/task-3
+          cp -r task-3/dist/* ./dist/task-3/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
