@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+﻿name: Deploy to GitHub Pages
 
 on:
   push:
@@ -44,6 +44,15 @@ jobs:
           cd ..
           mkdir -p ./dist/task-3
           cp -r task-3/dist/* ./dist/task-3/
+
+      - name: Build task-4
+        run: |
+          cd task-4
+          npm ci
+          npm run build
+          cd ..
+          mkdir -p ./dist/task-4
+          cp -r task-4/dist/* ./dist/task-4/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
