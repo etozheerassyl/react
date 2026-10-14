@@ -1,4 +1,4 @@
-﻿name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -54,6 +54,15 @@ jobs:
           mkdir -p ./dist/task-4
           cp -r task-4/dist/* ./dist/task-4/
 
+      - name: Build midterm
+        run: |
+          cd midterm
+          npm ci
+          npm run build
+          cd ..
+          mkdir -p ./dist/midterm
+          cp -r midterm/dist/* ./dist/midterm/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -65,3 +74,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
