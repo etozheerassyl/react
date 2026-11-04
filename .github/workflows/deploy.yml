@@ -63,6 +63,17 @@ jobs:
           mkdir -p ./dist/midterm
           cp -r midterm/dist/* ./dist/midterm/
 
+      - name: Build task-5
+        run: |
+          cd task-5
+          npm ci
+          npm run build
+          cd ..
+          mkdir -p ./dist/task-5
+          cp -r task-5/dist/* ./dist/task-5/
+          mkdir -p "./dist/task 5"
+          cp -r task-5/dist/* "./dist/task 5/"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -74,4 +85,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-

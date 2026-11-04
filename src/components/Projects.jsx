@@ -3,40 +3,64 @@ import React from 'react';
 export default function Projects() {
   const projects = [
     {
+      id: 5,
+      title: 'Aegis Core — Routing & Architecture',
+      badge: 'Task 5 (Current Assignment)',
+      description:
+        'Advanced React Router application featuring nested routes with RootLayout & Outlet, useSearchParams URL parameter synchronization, dynamic useParams routes, on-demand React.lazy & Suspense code splitting, and real-time operations dashboard.',
+      tags: ['React 19', 'React Router v7', 'useSearchParams', 'useParams', 'React.lazy', 'Suspense'],
+      github: 'https://github.com/etozheerassyl/react/tree/main/task-5',
+      demo: 'https://etozheerassyl.github.io/react/task-5/',
+      featured: true,
+      stats: 'React Router • URL Sync • Lazy Loading',
+    },
+    {
+      id: 4,
+      title: 'CineVault — Film Discovery Platform',
+      badge: 'Midterm Project',
+      description:
+        'Comprehensive cinema catalog application with multi-criteria filtering, local storage persistence, responsive modal inspection sheets, and real-time movie telemetry.',
+      tags: ['React 19', 'Vite', 'Lucide React', 'Persistence', 'Client-side Filtering'],
+      github: 'https://github.com/etozheerassyl/react/tree/main/midterm',
+      demo: 'https://etozheerassyl.github.io/react/midterm/',
+      featured: false,
+      stats: 'Movie Discovery • Rich Filters',
+    },
+    {
+      id: 3,
+      title: 'Aegis Core — Async React & Simulated API',
+      badge: 'Task 4',
+      description:
+        'Simulated asynchronous React application demonstrating useEffect lifecycle synchronization, race-condition mitigation with cleanup flags, stale-closure guards, and live network latency inspector.',
+      tags: ['React 19', 'useEffect', 'Race Condition Defense', 'Async API'],
+      github: 'https://github.com/etozheerassyl/react/tree/main/task-4',
+      demo: 'https://etozheerassyl.github.io/react/task-4/',
+      featured: false,
+      stats: 'Race Condition Defense • Live Telemetry',
+    },
+    {
+      id: 2,
+      title: 'Cyberpunk Operatives Dashboard',
+      badge: 'Task 3',
+      description:
+        'High-tech operative registry with dynamic state management, reactive filtering, real-time stats aggregation, and state reconciliation demo.',
+      tags: ['React 19', 'State Management', 'Immutability', 'Cyberpunk UI'],
+      github: 'https://github.com/etozheerassyl/react/tree/main/task-3',
+      demo: 'https://etozheerassyl.github.io/react/task-3/',
+      featured: false,
+      stats: 'State Management • Reactive Filters',
+    },
+    {
       id: 1,
-      title: 'Self-Promotional React SPA',
-      badge: 'Current Assignment (Task 2)',
+      title: 'Self-Promotional React Portfolio SPA',
+      badge: 'Task 2',
       description:
         'A sleek, responsive Single Page Application built with React 19 and Vite. Features modular architecture, custom vanilla CSS design system, and configured for seamless GitHub Pages deployment.',
       tags: ['React 19', 'Vite', 'Vanilla CSS', 'GitHub Pages', 'SPA'],
       github: 'https://github.com/etozheerassyl/react',
       demo: 'https://etozheerassyl.github.io/react/',
-      featured: true,
+      featured: false,
       stats: 'Modular • Fast • Responsive',
-    },
-    {
-      id: 2,
-      title: 'Dynamic Habit & Task Tracker',
-      badge: 'Productivity App',
-      description:
-        'A rich interactive dashboard helping developers track daily coding goals, manage task priority queues, and visualize habit streaks with client-side persistence.',
-      tags: ['React', 'Custom Hooks', 'LocalStorage', 'CSS Grid'],
-      github: 'https://github.com',
-      demo: '#',
-      featured: false,
-      stats: 'Persistent State • Micro-animations',
-    },
-    {
-      id: 3,
-      title: 'DevLens - Resource Hub',
-      badge: 'Developer Tool',
-      description:
-        'A curated knowledge base and code snippet repository featuring instant search filtering, copy-to-clipboard functionality, and glassmorphic UI cards.',
-      tags: ['React', 'JavaScript', 'Responsive UI', 'Search Engine'],
-      github: 'https://github.com',
-      demo: '#',
-      featured: false,
-      stats: 'Fast Search • Clean UX',
     },
   ];
 
@@ -44,12 +68,12 @@ export default function Projects() {
     <section id="projects" className="projects-section">
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">Featured Work</span>
+          <span className="section-tag">Coursework &amp; Assignments</span>
           <h2 className="section-title">
-            Projects & <span className="gradient-text">Creations</span>
+            Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="section-desc">
-            Explore a selection of interactive projects demonstrating component design, state handling, and modern UI practices.
+            Explore my interactive coursework projects demonstrating component design, routing architecture, state handling, and modern UI engineering.
           </p>
         </div>
 
