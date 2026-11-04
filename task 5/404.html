@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aegis Core Routing Redirect</title>
+    <script>
+      (function() {
+        var l = window.location;
+        var pathname = l.pathname;
+        var targetPrefix = '/react/task-5/';
+        if (!pathname.includes('task-5')) targetPrefix = '/';
+        var routePath = pathname.replace(/^.*task-5\/?/, '');
+        var newUrl = l.protocol + '//' + l.host + (pathname.includes('/react/') ? '/react/task-5/' : '/task-5/') + (routePath ? '#/' + routePath : '#/') + l.search + l.hash;
+        window.location.replace(newUrl);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to Aegis Core Subsystem...</p>
+  </body>
+</html>
