@@ -3,15 +3,27 @@ import React from 'react';
 export default function Projects() {
   const projects = [
     {
+      id: 6,
+      title: 'Aegis Core — Caching & Firebase Auth',
+      badge: 'Task 6 (Current Assignment)',
+      description:
+        'Extended React Router platform with TanStack Query server-data caching (30s staleTime, 5m gcTime), mutation-driven cache invalidation, AbortSignal race-condition defense, VITE_ env configuration, and Firebase Auth (Email/Password, Google Sign-In, /signup, protected /profile).',
+      tags: ['React 19', 'TanStack Query', 'Firebase Auth', 'Google Sign-In', 'Protected Routes', 'Cache Invalidation'],
+      github: 'https://github.com/etozheerassyl/react/tree/main/task-6',
+      demo: 'https://etozheerassyl.github.io/react/task-6/',
+      featured: true,
+      stats: 'Query Cache • Firebase Auth',
+    },
+    {
       id: 5,
       title: 'Aegis Core — Routing & Architecture',
-      badge: 'Task 5 (Current Assignment)',
+      badge: 'Task 5',
       description:
         'Advanced React Router application featuring nested routes with RootLayout & Outlet, useSearchParams URL parameter synchronization, dynamic useParams routes, on-demand React.lazy & Suspense code splitting, and real-time operations dashboard.',
       tags: ['React 19', 'React Router v7', 'useSearchParams', 'useParams', 'React.lazy', 'Suspense'],
       github: 'https://github.com/etozheerassyl/react/tree/main/task-5',
       demo: 'https://etozheerassyl.github.io/react/task-5/',
-      featured: true,
+      featured: false,
       stats: 'React Router • URL Sync • Lazy Loading',
     },
     {
