@@ -8,6 +8,7 @@
 
 | Project / Assignment | Description | Directory | Live GitHub Pages Link |
 |---|---|---|---|
+| **Task 7: Installable Offline-First PWA** | Installable Progressive Web App with `manifest.json`, `192×192` & `512×512` icons, hand-written Service Worker (`sw.js`) with versioned precache & update prompt, Cache-First static + Network-First public API runtime caching, dedicated `/offline` route & `offline.html` fallback, and `320px+` mobile adaptation preserving all Task 6 features. | [`/task-7`](./task-7) | [Live Preview](https://etozheerassyl.github.io/react/task-7/) |
 | **Task 6: Caching & Firebase Auth** | TanStack Query server-data caching, mutation-driven invalidation, `VITE_` env config ([`.env.example`](./task-6/.env.example)), Firebase Email/Password & Google Sign-In, `/signup`, and protected `/profile`. | [`/task-6`](./task-6) | [Live Preview](https://etozheerassyl.github.io/react/task-6/) |
 | **Task 5: Routing & Architecture** | React Router v7, nested routes, URL sync with `useSearchParams`, `useParams`, `React.lazy`, and operations dashboard. | [`/task-5`](./task-5) | [Live Preview](https://etozheerassyl.github.io/react/task-5/) |
 | **Midterm: CineVault** | Movie discovery SPA with multi-criteria filtering, persistence, and modal inspection. | [`/midterm`](./midterm) | [Live Preview](https://etozheerassyl.github.io/react/midterm/) |
@@ -31,3 +32,4 @@ See the full documentation in [`task-6/README.md`](./task-6/README.md) and envir
 Projects are built and published via GitHub Actions ([`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)):
 - **Root Portfolio:** [https://etozheerassyl.github.io/react/](https://etozheerassyl.github.io/react/)
 - **Task 6 Application:** [https://etozheerassyl.github.io/react/task-6/](https://etozheerassyl.github.io/react/task-6/)
+- **Task 7 PWA Application:** [https://etozheerassyl.github.io/react/task-7/](https://etozheerassyl.github.io/react/task-7/)
