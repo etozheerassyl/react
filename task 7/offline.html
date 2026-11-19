@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0d14" />
+    <title>Offline — Aegis Core</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
+    <style>
+      /* Self-contained: no external CSS/fonts so this page always renders offline */
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        background: radial-gradient(circle at 20% 10%, rgba(59,130,246,.12), transparent 45%),
+                    radial-gradient(circle at 80% 90%, rgba(6,182,212,.10), transparent 45%), #0a0d14;
+        color: #f1f5f9;
+        display: flex; align-items: center; justify-content: center;
+        padding: 24px 16px calc(24px + env(safe-area-inset-bottom));
+        min-height: 100%;
+      }
+      .card {
+        width: 100%; max-width: 460px; text-align: center;
+        background: rgba(18,25,41,.85); border: 1px solid rgba(255,255,255,.1);
+        border-radius: 20px; padding: 32px 24px; box-shadow: 0 16px 40px rgba(0,0,0,.5);
+      }
+      .icon {
+        width: 72px; height: 72px; margin: 0 auto 20px; border-radius: 20px;
+        display: grid; place-items: center; color: #f59e0b;
+        background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.35);
+      }
+      h1 { font-size: 1.5rem; margin-bottom: 10px; }
+      p { color: #94a3b8; line-height: 1.6; font-size: .95rem; }
+      .status {
+        display: inline-flex; align-items: center; gap: 8px; margin: 18px 0 22px;
+        padding: 6px 14px; border-radius: 999px; font-size: .8rem; font-weight: 600;
+        letter-spacing: .04em; background: rgba(244,63,94,.12); color: #fda4af;
+        border: 1px solid rgba(244,63,94,.35);
+      }
+      .status.online { background: rgba(16,185,129,.12); color: #6ee7b7; border-color: rgba(16,185,129,.35); }
+      .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+      .actions { display: flex; flex-direction: column; gap: 10px; }
+      button, a.btn {
+        min-height: 48px; border-radius: 12px; font-size: 1rem; font-weight: 600;
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        text-decoration: none; cursor: pointer; border: 1px solid transparent; padding: 0 18px;
+        font-family: inherit;
+      }
+      button { background: linear-gradient(135deg, #3b82f6, #06b6d4); color: #fff; }
+      button:disabled { opacity: .7; cursor: progress; }
+      a.btn { background: transparent; color: #e2e8f0; border-color: rgba(255,255,255,.18); }
+      .hint { margin-top: 18px; font-size: .8rem; color: #64748b; }
+    </style>
+  </head>
+  <body>
+    <main class="card" role="main">
+      <div class="icon" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.58 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>
+        </svg>
+      </div>
+      <h1>You're offline</h1>
+      <p>This page couldn't be loaded because there is no internet connection. Pages and registry data you opened before are still available from the offline cache.</p>
+      <div id="status" class="status" role="status" aria-live="polite"><span class="dot"></span><span id="status-text">OFFLINE</span></div>
+      <div class="actions">
+        <button id="retry" type="button">Retry Connection</button>
+        <a class="btn" href="./#/">Open cached app</a>
+      </div>
+      <p class="hint" id="hint">The app reconnects automatically as soon as the network is back.</p>
+    </main>
+    <script>
+      (function () {
+        var statusEl = document.getElementById("status");
+        var statusText = document.getElementById("status-text");
+        var hint = document.getElementById("hint");
+        var retry = document.getElementById("retry");
+        var appLink = document.querySelector("a.btn");
+        var base = "./";
+
+        // This page may be served by the service worker for any URL inside the app
+        // scope, so resolve links against the SW scope instead of the current URL.
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.getRegistration().then(function (reg) {
+            if (reg && reg.scope) {
+              base = reg.scope;
+              appLink.href = base + "#/";
+            }
+          });
+        }
+
+        function setOnline(online) {
+          statusEl.classList.toggle("online", online);
+          statusText.textContent = online ? "BACK ONLINE" : "OFFLINE";
+        }
+
+        function probe() {
+          if (!navigator.onLine) return Promise.resolve(false);
+          return fetch(base + "version.json?__probe=" + Date.now(), { cache: "no-store" })
+            .then(function () { return true; })
+            .catch(function () { return false; });
+        }
+
+        function attempt() {
+          retry.disabled = true;
+          retry.textContent = "Checking connection…";
+          probe().then(function (online) {
+            setOnline(online);
+            retry.disabled = false;
+            retry.textContent = "Retry Connection";
+            if (online) {
+              hint.textContent = "Connection restored — reloading…";
+              // Reload the page the user originally asked for (the URL is unchanged)
+              setTimeout(function () { location.reload(); }, 400);
+            } else {
+              hint.textContent = "Still offline (checked " + new Date().toLocaleTimeString() + "). Try again in a moment.";
+            }
+          });
+        }
+
+        retry.addEventListener("click", attempt);
+        window.addEventListener("online", attempt);
+        window.addEventListener("offline", function () { setOnline(false); });
+        setOnline(false);
+      })();
+    </script>
+  </body>
+</html>

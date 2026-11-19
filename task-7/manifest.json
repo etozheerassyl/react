@@ -1,0 +1,35 @@
+{
+  "id": "./",
+  "name": "Aegis Core — Asset Telemetry PWA",
+  "short_name": "Aegis Core",
+  "description": "Installable, offline-capable asset telemetry registry built with React 19, React Router, TanStack Query and Firebase Auth.",
+  "start_url": "./#/",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#0a0d14",
+  "background_color": "#0a0d14",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["productivity", "business", "utilities"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Asset Registry",
+      "short_name": "Registry",
+      "url": "./#/items",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Operations Dashboard",
+      "short_name": "Dashboard",
+      "url": "./#/dashboard",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

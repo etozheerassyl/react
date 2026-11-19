@@ -1,0 +1,1 @@
+{"name":"Aegis Core Public Registry API","version":1,"generatedAt":"2026-11-19T04:29:50.147Z","endpoints":{"list":"api/assets.json","details":"api/assets/{id}.json"}}
