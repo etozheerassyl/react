@@ -3,15 +3,27 @@ import React from 'react';
 export default function Projects() {
   const projects = [
     {
+      id: 7,
+      title: 'Aegis Core — Installable Offline-First PWA',
+      badge: 'Task 7 (Current Assignment)',
+      description:
+        'Converted Aegis Core into an installable Progressive Web App with manifest.json, 192×192 & 512×512 icons, hand-written Service Worker (versioned precache & update notification prompt), Cache-First & Network-First runtime caching, dedicated /offline route & fallback, and 320px+ mobile adaptation while preserving TanStack Query & Firebase Auth.',
+      tags: ['Installable PWA', 'Service Worker', 'Runtime Caching', 'Offline Mode', 'Mobile 320px+', 'Firebase Auth'],
+      github: 'https://github.com/etozheerassyl/react/tree/main/task-7',
+      demo: 'https://etozheerassyl.github.io/react/task-7/',
+      featured: true,
+      stats: 'PWA • Service Worker • Offline Ready',
+    },
+    {
       id: 6,
       title: 'Aegis Core — Caching & Firebase Auth',
-      badge: 'Task 6 (Current Assignment)',
+      badge: 'Task 6',
       description:
         'Extended React Router platform with TanStack Query server-data caching (30s staleTime, 5m gcTime), mutation-driven cache invalidation, AbortSignal race-condition defense, VITE_ env configuration, and Firebase Auth (Email/Password, Google Sign-In, /signup, protected /profile).',
       tags: ['React 19', 'TanStack Query', 'Firebase Auth', 'Google Sign-In', 'Protected Routes', 'Cache Invalidation'],
       github: 'https://github.com/etozheerassyl/react/tree/main/task-6',
       demo: 'https://etozheerassyl.github.io/react/task-6/',
-      featured: true,
+      featured: false,
       stats: 'Query Cache • Firebase Auth',
     },
     {
